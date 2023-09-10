@@ -37,3 +37,14 @@ class BinaryTree:
     def display_tree(self):
         if self.root:
             self.display_inorder(self.root)
+    
+    def search(self, value):
+        current = self.root
+        while current:
+            if current.value == value:
+                return current
+            elif current.value < value:
+                current = current.RightChildNode
+            else:
+                current = current.LeftChildNode
+        return None

@@ -6,4 +6,6 @@ while True:
     if value == 'q':
         bt.display_tree()
         break
-    bt.insert(value)
+    bt.insert(int(value))
+    
+print(bt.search(5))
