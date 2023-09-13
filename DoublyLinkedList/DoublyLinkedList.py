@@ -1,7 +1,7 @@
 class Node:
     def __init__(self, value):
-        self.previous_node = Node
-        self.next_node = Node
+        self.previous_node = None
+        self.next_node = None
         self.value = value
 
 class DoublyLinkedList:
@@ -53,3 +53,28 @@ class DoublyLinkedList:
                return
             print(current.value, end="-->")
             current = current.previous_node
+
+    def delete(self, value):
+        if not self.head:
+            return None
+        current = self.head
+        found = False
+        while current:
+            if current.value == value:
+                found = True
+                break
+            current = current.next_node
+        if not found:
+            return None
+        before_current = current.previous_node
+        after_current = current.next_node
+        if not before_current:
+            self.head = after_current
+            after_current.previous_node = None
+        elif not after_current:
+            self.tail = before_current
+            before_current.next_node = None
+        else:
+            before_current.next_node = after_current
+            after_current.previous_node = before_current
+        return True

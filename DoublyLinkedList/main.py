@@ -8,4 +8,9 @@ def main():
         dl.append(entry)
     dl.display()
     dl.display_backward()
+    value = input('Which value do you wich to delete: ')
+    if dl.delete(value):
+            print('deletion succeded')
+            dl.display()
+            dl.display_backward()
 main()
